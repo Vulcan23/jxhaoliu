@@ -8,8 +8,19 @@
       </p>
     </section>
     <section class="middle">
-      <div v-for="item in iconWechat" :key="item.path">
-        <img v-lazy="require(`~/assets/icon_${item.path}.png`)" />
+      <div
+        v-for="item in iconWechat"
+        :key="item.path"
+        ref="iconWechat"
+        :style="{
+          height: iconWechatHeight,
+          paddingBottom: iconWechatPaddingBottom,
+        }"
+      >
+        <img
+          v-lazy="require(`~/assets/icon_${item.path}.png`)"
+          @load="synchronousHeight"
+        />
         <h2>{{ item.text.title }}</h2>
         <p>{{ item.text.content }}</p>
       </div>
@@ -61,7 +72,37 @@ export default {
           },
         },
       ],
+      iconWechatHeight: "auto",
+      iconWechatPaddingBottom: "12.5%",
+      b: true,
     };
+  },
+  methods: {
+    synchronousHeight() {
+      if (this.b) {
+        this.b = false;
+        this.iconWechatHeight =
+          Math.max(...this.$refs.iconWechat.map((item) => item.clientHeight)) +
+          "px";
+        this.iconWechatPaddingBottom = "0";
+      }
+    },
+    synchronousHeightResize() {
+      this.iconWechatHeight = "auto";
+      this.iconWechatPaddingBottom = "12.5%";
+      this.$nextTick(() => {
+        this.iconWechatHeight =
+          Math.max(...this.$refs.iconWechat.map((item) => item.clientHeight)) +
+          "px";
+        this.iconWechatPaddingBottom = "0";
+      });
+    },
+  },
+  mounted() {
+    window.addEventListener("resize", this.synchronousHeightResize);
+  },
+  beforeDestroy() {
+    window.removeEventListener("resize", this.synchronousHeightResize);
   },
 };
 </script>
@@ -120,7 +161,6 @@ $brand-color: #52ba30;
     }
 
     div {
-      height: (47em/2);
       text-align: center;
 
       img {
@@ -164,10 +204,6 @@ $brand-color: #52ba30;
     @media (max-width: 575px) {
       width: 100%;
       margin: 4.54545% auto;
-
-      div {
-        padding-bottom: 30%;
-      }
     }
   }
 }

@@ -2,20 +2,20 @@
   <el-container>
     <el-header>
       <div>
-        <router-link to="/">
+        <NuxtLink to="/">
           <img v-lazy="require('~/assets/logo.png')" />
-        </router-link>
+        </NuxtLink>
         <el-menu
           mode="horizontal"
           text-color="#000"
           active-text-color="#52ba30"
           :default-active="$route.path"
+          router
         >
           <el-menu-item
             v-for="item in routerData"
             :key="item.name"
             :index="item.path"
-            @click="handleCommand(item.path)"
             >{{ item.name }}</el-menu-item
           >
         </el-menu>
@@ -81,55 +81,17 @@
 </template>
 
 <script>
+import { routerData } from "~/plugins/route.js";
 export default {
   data() {
     return {
-      routerData: [
-        {
-          name: "首页",
-          path: "/",
-        },
-        {
-          name: "广告投放",
-          path: "/wechatad",
-        },
-        {
-          name: "品牌案例",
-          path: "/brandcase",
-        },
-        {
-          name: "公司介绍",
-          path: "/companyprofile",
-        },
-        {
-          name: "联系我们",
-          path: "/contactus",
-        },
-      ],
+      routerData: routerData,
       linkActivated: false,
     };
   },
-  beforeMount() {
-    let path = this.$route.path;
-    for (let i of this.routerData) {
-      if (i.path === path) {
-        document.title = i.name + " | 好六网络";
-        break;
-      }
-    }
-  },
   methods: {
     handleCommand(command) {
-      let path = this.$route.path;
-      if (path !== command) {
-        this.$router.push(command);
-        for (let i of this.routerData) {
-          if (i.path === command) {
-            document.title = i.name + " | 好六网络";
-            break;
-          }
-        }
-      }
+      this.$route.path !== command && this.$router.push(command);
     },
   },
 };
@@ -168,7 +130,9 @@ body {
 }
 
 html,
-body {
+body,
+#__nuxt,
+#__layout {
   height: 100%;
 }
 
@@ -274,7 +238,7 @@ p {
 
 .el-main {
   padding: 0 !important;
-  overflow: hidden;
+  overflow: hidden !important;
 }
 
 .el-footer {

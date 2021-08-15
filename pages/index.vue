@@ -67,6 +67,22 @@
 import SwiperCore, { Pagination, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "vue-awesome-swiper";
 SwiperCore.use([Pagination, Autoplay]);
+
+function throttle(callback, delay = 600) {
+  let last = 0;
+  let timer = null;
+  return () => {
+    clearTimeout(timer);
+    let now = Date.now();
+    if (now - last >= delay) {
+      callback();
+      last = now;
+    } else {
+      timer = setTimeout(callback, delay);
+    }
+  };
+}
+
 export default {
   components: {
     Swiper,
@@ -135,14 +151,14 @@ export default {
       let topImageScrollHeight = refs.topImage.scrollHeight;
       let topContentScrollHeight = refs.topContent.scrollHeight;
       let allowance = topImageScrollHeight - topContentScrollHeight - margin;
-      if (allowance > margin) {
-        this.topHeight = topContentScrollHeight + 2 * margin + "px";
-      } else {
-        this.topHeight = topImageScrollHeight + "px";
-      }
+      this.topHeight =
+        (allowance > margin
+          ? topContentScrollHeight + 2 * margin
+          : topImageScrollHeight) + "px";
     },
   },
   mounted() {
+    this.initTopHeight = throttle(this.initTopHeight, 1000);
     window.addEventListener("resize", this.initTopHeight);
   },
   beforeDestroy() {

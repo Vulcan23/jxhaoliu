@@ -20,7 +20,9 @@
             是中国优质的互联网广告投放服务提供商。
           </p>
         </div>
-        <img v-lazy="require('~/assets/companyprofile_background_middle.jpg')" />
+        <img
+          v-lazy="require('~/assets/companyprofile_background_middle.jpg')"
+        />
       </div>
     </section>
     <section class="history">
@@ -294,7 +296,6 @@ $brand-color: #469dff;
 
         > div {
           position: relative;
-          text-align: center;
         }
 
         @media (max-width: 575px) {
