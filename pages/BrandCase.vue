@@ -119,14 +119,12 @@ $brand-color: #52ba30;
       background-color: #000;
     }
 
-    i {
-      &:first-of-type {
-        transform: translateX(-0.25em);
-      }
+    i:first-of-type {
+      transform: translateX(-0.25em);
+    }
 
-      &:last-of-type {
-        transform: translateX(-1em);
-      }
+    i:last-of-type {
+      transform: translateX(-1em);
     }
 
     p {

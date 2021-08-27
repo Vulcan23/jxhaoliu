@@ -179,7 +179,7 @@ p {
     width: 60rem;
 
     @media (min-width: 992px) {
-      > :last-child {
+      .el-dropdown {
         display: none;
       }
 
