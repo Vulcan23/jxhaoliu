@@ -9,36 +9,29 @@
       </swiper-slide>
       <div class="swiper-pagination" slot="pagination"></div>
     </swiper>
-    <section class="top" :style="{ height: topHeight }">
-      <img
-        v-lazy="require('~/assets/background_top.jpg')"
-        ref="topImage"
-        @load="initTopHeight"
-      />
+    <section class="top">
       <div>
-        <div ref="topContent">
-          <h1 ref="titleMarginTop">我们能为你做些什么</h1>
-          <p>
-            专注于平台建设、移动营销推广、品牌活动策划领域，是一家集设计、开发、运营于一体的综合性互联网服务公司；公司提供最具实效的网销服务和战略指导、最全面可靠的平台搭建及运营咨询。
-          </p>
-          <el-row
-            v-for="item in introduceBusiness"
-            :key="item.path"
-            type="flex"
-            justify="space-between"
-            align="middle"
-          >
-            <el-col :span="11" :offset="1" :pull="item.path === '2' ? 1 : 0">
-              <h2>{{ item.text.title }}</h2>
-              <p>{{ item.text.content }}</p>
-            </el-col>
-            <el-col
-              :span="12"
-              tag="img"
-              v-lazy="require(`~/assets/introduce_business${item.path}.jpg`)"
-            />
-          </el-row>
-        </div>
+        <h1>我们能为你做些什么</h1>
+        <p>
+          专注于平台建设、移动营销推广、品牌活动策划领域，是一家集设计、开发、运营于一体的综合性互联网服务公司；公司提供最具实效的网销服务和战略指导、最全面可靠的平台搭建及运营咨询。
+        </p>
+        <el-row
+          v-for="item in introduceBusiness"
+          :key="item.path"
+          type="flex"
+          justify="space-between"
+          align="middle"
+        >
+          <el-col :span="11" :offset="1" :pull="item.path === '2' ? 1 : 0">
+            <h2>{{ item.text.title }}</h2>
+            <p>{{ item.text.content }}</p>
+          </el-col>
+          <el-col
+            :span="12"
+            tag="img"
+            v-lazy="require(`~/assets/introduce_business${item.path}.jpg`)"
+          />
+        </el-row>
       </div>
     </section>
     <section class="middle">
@@ -136,33 +129,12 @@ export default {
           },
         },
       ],
-      topHeight: "auto",
     };
   },
   methods: {
     initCarouselHeight() {
       this.carouselHeight = "auto";
     },
-    initTopHeight() {
-      let refs = this.$refs;
-      let margin = parseInt(
-        window.getComputedStyle(refs.titleMarginTop).marginTop.match(/\d+/)[0]
-      );
-      let topImageScrollHeight = refs.topImage.scrollHeight;
-      let topContentScrollHeight = refs.topContent.scrollHeight;
-      let allowance = topImageScrollHeight - topContentScrollHeight - margin;
-      this.topHeight =
-        (allowance > margin
-          ? topContentScrollHeight + 2 * margin
-          : topImageScrollHeight) + "px";
-    },
-  },
-  mounted() {
-    this.initTopHeight = throttle(this.initTopHeight, 1000);
-    window.addEventListener("resize", this.initTopHeight);
-  },
-  beforeDestroy() {
-    window.removeEventListener("resize", this.initTopHeight);
   },
 };
 </script>
@@ -195,61 +167,54 @@ $brand-color: #52ba30;
   }
 
   .top {
-    position: relative;
     color: #fff;
-    overflow: hidden;
+    padding: (30rem/11) 0;
+    background: url("~/assets/background_top.jpg") left/cover;
 
     > div {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
+      margin: 0 auto;
+      width: 60rem;
 
-      > div {
-        margin: 0 auto;
-        width: 60rem;
+      h1 {
+        text-align: center;
+        margin-top: 0;
+      }
 
-        h1 {
-          text-align: center;
+      h2 {
+        font-size: (30rem/11);
+      }
+
+      > p {
+        font-size: (17rem/11);
+        text-indent: 2em;
+      }
+
+      .el-row {
+        margin-top: 7%;
+        color: #000;
+
+        img {
+          width: 35%;
         }
 
-        h2 {
-          font-size: (30rem/11);
-        }
-
-        > p {
-          font-size: (17rem/11);
-          text-indent: 2em;
-        }
-
-        .el-row {
-          margin-top: 7%;
-          color: #000;
-
-          img {
-            width: 35%;
-          }
-
-          &:hover {
-            color: #fff;
-            background-color: rgba(0, 0, 0, 0.46);
-          }
-        }
-
-        .el-row:nth-of-type(2) {
-          img {
-            order: -1;
-          }
+        &:hover {
+          color: #fff;
+          background-color: rgba(0, 0, 0, 0.46);
         }
       }
 
-      @media (max-width: 575px) {
-        margin: 0 15px;
-
-        > div {
-          width: 100%;
+      .el-row:nth-of-type(2) {
+        img {
+          order: -1;
         }
+      }
+    }
+
+    @media (max-width: 575px) {
+      padding: 2.7272727273rem 15px;
+
+      > div {
+        width: 100%;
       }
     }
   }

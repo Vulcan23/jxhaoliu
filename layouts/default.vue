@@ -276,7 +276,6 @@ p {
     > div {
       display: flex;
       justify-content: space-between;
-      align-items: flex-start;
 
       /* img {
         width: 150px;
