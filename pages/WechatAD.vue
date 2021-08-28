@@ -157,7 +157,7 @@ $brand-color: #52ba30;
 
     p {
       font-size: 1em;
-      margin: 0 0.5em;
+      margin: 0 .5em;
     }
 
     div {

@@ -120,7 +120,7 @@ $brand-color: #52ba30;
     }
 
     i:first-of-type {
-      transform: translateX(-0.25em);
+      transform: translateX(-.25em);
     }
 
     i:last-of-type {

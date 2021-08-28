@@ -229,9 +229,9 @@ $brand-color: #469dff;
 
     h3 {
       font-size: (16rem/11);
-      color: rgba(46, 46, 46, 0.82);
+      color: rgba(46, 46, 46, .82);
       margin: 0;
-      letter-spacing: 0.18em;
+      letter-spacing: .18em;
     }
 
     .el-divider {
@@ -249,7 +249,7 @@ $brand-color: #469dff;
       p {
         text-align: justify;
         line-height: 1.4;
-        letter-spacing: 0.18em;
+        letter-spacing: .18em;
         font-size: (12rem/11);
       }
     }

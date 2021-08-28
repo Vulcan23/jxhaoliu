@@ -16,8 +16,15 @@
           <div></div>
         </el-button>
       </div>
+      <transition name="move">
+        <div class="drawer" v-show="linkActivated">
+          <nav-menu
+            :router-data="routerData"
+            @click.native="() => (linkActivated = false)"
+          />
+        </div>
+      </transition>
     </el-header>
-    <nav-menu :router-data="routerData" class="drawer" />
     <el-main>
       <Nuxt />
     </el-main>
@@ -64,7 +71,7 @@ export default {
   },
   data() {
     return {
-      routerData: routerData,
+      routerData,
       linkActivated: false,
     };
   },
@@ -77,6 +84,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import "~/assets/css/move";
 $brand-color: #52ba30;
 
 html {
@@ -141,6 +149,8 @@ p {
 .el-header {
   padding: 0 !important;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+  position: relative;
 
   @media (max-width: 767px) {
     &,
@@ -149,13 +159,14 @@ p {
     }
   }
 
-  > div {
+  > :first-child {
     height: 100%;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 60rem;
+    background-color: #fff;
 
     @media (min-width: 992px) {
       .el-button {
@@ -206,11 +217,18 @@ p {
 }
 
 .drawer {
-  position: absolute !important;
-  top: 60px;
+  position: absolute;
   width: 100%;
-  z-index: 2;
-  border-top: 1px rgba(0, 0, 0, 0.06) solid;
+  z-index: -1;
+  background-color: #fff;
+  box-sizing: border-box;
+
+  .el-menu {
+    width: 60rem;
+    margin: 0 auto;
+    border: none;
+    border-top: 1px rgba(0, 0, 0, 0.06) solid;
+  }
 
   @media (min-width: 992px) {
     & {
@@ -221,6 +239,16 @@ p {
   @media (max-width: 767px) {
     & {
       top: 40px;
+    }
+  }
+
+  @media (max-width: 575px) {
+    & {
+      padding: 0 15px;
+    }
+
+    .el-menu {
+      width: 100%;
     }
   }
 }

@@ -199,7 +199,7 @@ $brand-color: #52ba30;
 
         &:hover {
           color: #fff;
-          background-color: rgba(0, 0, 0, 0.46);
+          background-color: rgba(0, 0, 0, .46);
         }
       }
 
