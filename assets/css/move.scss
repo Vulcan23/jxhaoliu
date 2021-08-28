@@ -1,9 +1,9 @@
-// .move-enter-active,
-// .move-leave-active {
-//   transition: all .25s;
-// }
+.move-enter-active,
+.move-leave-active {
+  transition: all .25s;
+}
 
-// .move-enter,
-// .move-leave-to {
-//   top: -337px !important;
-// }
+.move-enter,
+.move-leave-to {
+  transform: scaleY(0);
+}

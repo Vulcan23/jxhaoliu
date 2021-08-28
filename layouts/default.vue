@@ -9,6 +9,7 @@
         <el-button
           type="text"
           @click="(visible) => (linkActivated = !linkActivated)"
+          @mouseup.native.stop
           :class="{ 'link-activated': linkActivated }"
         >
           <div></div>
@@ -17,11 +18,8 @@
         </el-button>
       </div>
       <transition name="move">
-        <div class="drawer" v-show="linkActivated">
-          <nav-menu
-            :router-data="routerData"
-            @click.native="() => (linkActivated = false)"
-          />
+        <div v-show="linkActivated">
+          <nav-menu :router-data="routerData" />
         </div>
       </transition>
     </el-header>
@@ -75,10 +73,19 @@ export default {
       linkActivated: false,
     };
   },
+  beforeMount() {
+    window.addEventListener("mouseup", this.putAway);
+  },
   methods: {
     handleCommand(command) {
       this.$route.path !== command && this.$router.push(command);
     },
+    putAway() {
+      this.linkActivated = false;
+    },
+  },
+  beforeDestroy() {
+    window.removeEventListener("mouseup", this.putAway);
   },
 };
 </script>
@@ -205,49 +212,49 @@ p {
     }
   }
 
+  > :last-child {
+    position: absolute;
+    width: 100%;
+    background-color: #fff;
+    box-sizing: border-box;
+    transform-origin: top;
+
+    .el-menu {
+      width: 60rem;
+      margin: 0 auto;
+      border: none;
+      border-top: 1px rgba(0, 0, 0, 0.06) solid;
+    }
+
+    @media (min-width: 992px) {
+      & {
+        display: none;
+      }
+    }
+
+    @media (max-width: 767px) {
+      & {
+        top: 40px;
+      }
+    }
+
+    @media (max-width: 575px) {
+      & {
+        padding: 0 15px;
+      }
+
+      .el-menu {
+        width: 100%;
+      }
+    }
+  }
+
   @media (max-width: 575px) {
     & {
       padding: 0 15px !important;
     }
 
-    > div {
-      width: 100%;
-    }
-  }
-}
-
-.drawer {
-  position: absolute;
-  width: 100%;
-  z-index: -1;
-  background-color: #fff;
-  box-sizing: border-box;
-
-  .el-menu {
-    width: 60rem;
-    margin: 0 auto;
-    border: none;
-    border-top: 1px rgba(0, 0, 0, 0.06) solid;
-  }
-
-  @media (min-width: 992px) {
-    & {
-      display: none;
-    }
-  }
-
-  @media (max-width: 767px) {
-    & {
-      top: 40px;
-    }
-  }
-
-  @media (max-width: 575px) {
-    & {
-      padding: 0 15px;
-    }
-
-    .el-menu {
+    > :first-child {
       width: 100%;
     }
   }
