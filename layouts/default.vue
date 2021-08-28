@@ -5,44 +5,19 @@
         <NuxtLink to="/">
           <img v-lazy="require('~/assets/logo.png')" />
         </NuxtLink>
-        <el-menu
-          mode="horizontal"
-          text-color="#000"
-          active-text-color="#52ba30"
-          :default-active="$route.path"
-          router
+        <nav-menu :router-data="routerData" mode="horizontal" />
+        <el-button
+          type="text"
+          @click="(visible) => (linkActivated = !linkActivated)"
+          :class="{ 'link-activated': linkActivated }"
         >
-          <el-menu-item
-            v-for="item in routerData"
-            :key="item.name"
-            :index="item.path"
-            >{{ item.name }}</el-menu-item
-          >
-        </el-menu>
-        <el-dropdown
-          trigger="click"
-          @command="handleCommand"
-          @visible-change="(visible) => (linkActivated = visible)"
-        >
-          <div
-            class="el-dropdown-link"
-            :class="{ 'link-activated': linkActivated }"
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-          <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item
-              v-for="item in routerData"
-              :key="item.path"
-              :command="item.path"
-              >{{ item.name }}</el-dropdown-item
-            >
-          </el-dropdown-menu>
-        </el-dropdown>
+          <div></div>
+          <div></div>
+          <div></div>
+        </el-button>
       </div>
     </el-header>
+    <nav-menu :router-data="routerData" class="drawer" />
     <el-main>
       <Nuxt />
     </el-main>
@@ -82,7 +57,11 @@
 
 <script>
 import { routerData } from "~/plugins/route.js";
+import NavMenu from "~/components/NavMenu";
 export default {
+  components: {
+    NavMenu,
+  },
   data() {
     return {
       routerData: routerData,
@@ -179,14 +158,8 @@ p {
     width: 60rem;
 
     @media (min-width: 992px) {
-      .el-dropdown {
+      .el-button {
         display: none;
-      }
-
-      @at-root {
-        .el-dropdown-menu {
-          display: none;
-        }
       }
     }
 
@@ -200,27 +173,23 @@ p {
       height: 60px;
     }
 
-    .el-dropdown-link {
+    .el-button {
       padding: 2px 5px;
 
       &.link-activated {
         background-color: rgba(0, 0, 0, 0.06);
       }
 
-      &:focus {
-        outline: none;
+      &:hover {
+        cursor: pointer;
+        background-color: rgba(0, 0, 0, 0.06);
       }
 
-      span {
-        display: block;
+      div {
         background-color: #2c2c2c;
         width: 28px;
         height: 3px;
         margin: 4px 0;
-      }
-
-      &:hover {
-        cursor: pointer;
       }
     }
   }
@@ -232,6 +201,26 @@ p {
 
     > div {
       width: 100%;
+    }
+  }
+}
+
+.drawer {
+  position: absolute !important;
+  top: 60px;
+  width: 100%;
+  z-index: 2;
+  border-top: 1px rgba(0, 0, 0, 0.06) solid;
+
+  @media (min-width: 992px) {
+    & {
+      display: none;
+    }
+  }
+
+  @media (max-width: 767px) {
+    & {
+      top: 40px;
     }
   }
 }
