@@ -65,11 +65,9 @@
       <div>
         <h2>愿景及使命</h2>
         <div>
-          <div class="sense-of-worth-center">
-            <div v-for="item in senseOfWorth" :key="item.title">
-              <h3>{{ item.title }}</h3>
-              <p>{{ item.content }}</p>
-            </div>
+          <div v-for="item in senseOfWorth" :key="item.title">
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.content }}</p>
           </div>
         </div>
       </div>
@@ -271,7 +269,6 @@ h2 {
         &::after {
           content: "";
           position: absolute;
-          display: block;
           left: 100%;
           top: 50%;
           height: 1px;
@@ -346,6 +343,7 @@ h2 {
     color: #000;
     font-size: (21rem/11);
     margin: 0;
+    width: 50%;
   }
 
   h3 {
@@ -358,27 +356,27 @@ h2 {
     margin-left: 2em;
   }
 
-  .sense-of-worth-center {
-    width: fit-content;
-    margin: 0 auto;
-
-    > div {
-      > * {
-        display: inline-block;
-      }
-    }
-  }
-
   > div {
     display: flex;
     align-items: center;
-
-    > * {
-      width: 50%;
-    }
+    position: relative;
 
     > div {
-      border-left: 1px solid #000;
+      width: fit-content;
+      margin: 0 auto;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        width: 1px;
+        height: 100%;
+        background-color: #000;
+      }
+
+      > div > * {
+        display: inline-block;
+      }
     }
   }
 
@@ -392,8 +390,8 @@ h2 {
       font-size: 14px;
     }
 
-    h2 + div {
-      width: 75%;
+    > div > div::before {
+      left: 25%;
     }
   }
 }

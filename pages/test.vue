@@ -43,7 +43,6 @@ export default {
     &::after {
       content: "";
       position: absolute;
-      display: block;
       left: 100%;
       top: 50%;
       height: 1px;
