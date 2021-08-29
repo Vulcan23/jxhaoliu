@@ -1,5 +1,5 @@
 <template>
-  <div class="company-profile">
+  <div>
     <section class="top">
       <img v-lazy="require('~/assets/companyprofile_background_top.jpg')" />
       <h1>诚信、分享、共赢、创新</h1>
@@ -30,19 +30,10 @@
       <div>
         <div>
           <h2>发展历程</h2>
-          <p class="gray-field">
+          <p>
             好六网络总部设在江西省省会城市南昌，并在广州、武汉、温州设有分公司。
           </p>
-          <div>
-            <el-divider />
-            <div
-              class="history-item-circle"
-              v-for="item in history"
-              :key="item"
-            >
-              <p>{{ item }}</p>
-            </div>
-          </div>
+          <div v-for="item in history" :key="item" :data-year="item"></div>
         </div>
       </div>
     </section>
@@ -257,50 +248,49 @@ h2 {
       margin: 0 auto;
       text-align: center;
 
-      .gray-field {
-        color: #fff;
-      }
-
       > div {
+        color: #000;
+        background-color: #fff;
+        width: 8.0303%;
+        padding-top: 8.0303%;
+        display: inline-block;
         position: relative;
+        border-radius: 50%;
+        margin-right: 15.909%;
+        font-size: (29rem/22);
+        white-space: nowrap;
+
+        &::before {
+          content: attr(data-year);
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          display: block;
+          left: 100%;
+          top: 50%;
+          height: 1px;
+          width: 198.113%;
+          background-color: #fff;
+        }
+
+        &:last-of-type {
+          margin-right: 0;
+
+          &::after {
+            display: none;
+          }
+        }
       }
 
       @media (max-width: 575px) {
         width: 100%;
       }
-    }
-  }
-
-  .el-divider {
-    position: absolute;
-    top: 0;
-    left: 15%;
-    margin-top: 4.15151%;
-    width: 70%;
-  }
-
-  .history-item-circle {
-    color: #000;
-    background-color: #fff;
-    width: 8.0303%;
-    padding-top: 8.0303%;
-    display: inline-block;
-    position: relative;
-    border-radius: 50%;
-    margin-right: 15.909%;
-
-    &:last-of-type {
-      margin-right: 0;
-    }
-
-    > p {
-      font-size: (29rem/22);
-      margin: 0;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      white-space: nowrap;
     }
   }
 }

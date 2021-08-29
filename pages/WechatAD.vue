@@ -1,5 +1,5 @@
 <template>
-  <div class="wechat-ad">
+  <div>
     <section class="top">
       <img v-lazy="require('~/assets/wechatad_background.jpg')" />
       <h1>更多平台选择</h1>

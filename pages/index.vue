@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div>
     <swiper :options="swiperOptions" :height="carouselHeight">
       <swiper-slide v-for="path in 3" :key="path">
         <img
