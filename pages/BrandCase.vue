@@ -1,5 +1,5 @@
 <template>
-  <div class="brand-case">
+  <div>
     <section class="top">
       <img v-lazy="require('~/assets/brandcase_background.jpg')" />
       <div>
@@ -72,120 +72,116 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 $brand-color: #52ba30;
 
-.brand-case {
-  color: #fff;
+h1 {
+  text-align: center;
+}
 
-  h1 {
-    text-align: center;
+img {
+  width: 100%;
+}
+
+.top {
+  position: relative;
+
+  div {
+    position: absolute;
+    top: 17%;
+    right: 5.2%;
+  }
+}
+
+.middle {
+  color: #000;
+  width: 60rem;
+  margin: (30rem/11) auto;
+  display: grid;
+  grid-template-columns: 1fr 28% 2fr 28% 2fr 28% 1fr;
+  row-gap: 3rem;
+  font-size: 1rem;
+
+  h2 {
+    font-size: (14em/11);
+    margin-bottom: 0;
+
+    @media (max-width: 575px) {
+      font-size: 14px;
+    }
   }
 
-  img {
-    width: 100%;
+  .el-divider {
+    margin: 1px 0;
+    background-color: #000;
   }
 
-  .top {
-    position: relative;
-
-    div {
-      position: absolute;
-      top: 17%;
-      right: 5.2%;
-    }
+  i:first-of-type {
+    transform: translateX(-0.25em);
   }
 
-  .middle {
-    color: #000;
-    width: 60rem;
-    margin: (30rem/11) auto;
-    display: grid;
-    grid-template-columns: 1fr 28% 2fr 28% 2fr 28% 1fr;
-    row-gap: 3rem;
-    font-size: 1rem;
+  i:last-of-type {
+    transform: translateX(-1em);
+  }
 
-    h2 {
-      font-size: (14em/11);
-      margin-bottom: 0;
+  p {
+    font-size: (9em/11);
+    margin: 0;
+  }
 
-      @media (max-width: 575px) {
-        font-size: 14px;
-      }
-    }
+  ::v-deep .el-card {
+    border: none;
 
-    .el-divider {
-      margin: 1px 0;
-      background-color: #000;
-    }
+    > div {
+      padding: 0;
 
-    i:first-of-type {
-      transform: translateX(-.25em);
-    }
+      > a {
+        text-decoration: none;
+        color: #000;
 
-    i:last-of-type {
-      transform: translateX(-1em);
-    }
-
-    p {
-      font-size: (9em/11);
-      margin: 0;
-    }
-
-    .el-card {
-      border: none;
-
-      > div {
-        padding: 0;
-
-        > a {
-          text-decoration: none;
-          color: #000;
+        > div {
+          display: flex;
+          align-items: center;
+          margin: 2px 0;
 
           > div {
-            display: flex;
-            align-items: center;
-            margin: 2px 0;
-
-            > div {
-              width: (62em/11);
-            }
+            width: (62em/11);
           }
         }
       }
+    }
 
-      &:nth-of-type(3n + 1) {
+    &:nth-of-type(3n + 1) {
+      grid-column: 2 / 3;
+    }
+
+    &:nth-of-type(3n + 2) {
+      grid-column: 4 / 5;
+    }
+
+    &:nth-of-type(3n + 3) {
+      grid-column: 6 / 7;
+    }
+  }
+
+  @media (max-width: 767px) {
+    grid-template-columns: 1fr 42% 2fr 42% 1fr;
+    font-size: (3rem/2);
+
+    .el-card {
+      &:nth-of-type(2n + 1) {
         grid-column: 2 / 3;
       }
 
-      &:nth-of-type(3n + 2) {
+      &:nth-of-type(2n + 2) {
         grid-column: 4 / 5;
       }
-
-      &:nth-of-type(3n + 3) {
-        grid-column: 6 / 7;
-      }
     }
+  }
 
-    @media (max-width: 767px) {
-      grid-template-columns: 1fr 42% 2fr 42% 1fr;
-      font-size: (3rem/2);
-
-      .el-card {
-        &:nth-of-type(2n + 1) {
-          grid-column: 2 / 3;
-        }
-
-        &:nth-of-type(2n + 2) {
-          grid-column: 4 / 5;
-        }
-      }
-    }
-
-    @media (max-width: 575px) {
-      width: 100%;
-      margin: 4.54545% auto;
-    }
+  @media (max-width: 575px) {
+    width: 100%;
+    margin: 4.54545% auto;
   }
 }
 </style>

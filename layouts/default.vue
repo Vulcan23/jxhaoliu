@@ -91,12 +91,14 @@ export default {
 </script>
 
 <style lang="scss">
+@import "swiper/swiper-bundle";
 @import "~/assets/css/move";
 $brand-color: #52ba30;
 
 html {
   overflow: hidden auto;
   font-size: 6px;
+  color: #fff;
 
   @media (min-width: 576px) {
     font-size: 9px;
@@ -240,6 +242,7 @@ p {
 
     @media (max-width: 575px) {
       & {
+        left: 0;
         padding: 0 15px;
       }
 
@@ -293,7 +296,7 @@ p {
       transition: color 0.25s ease-out;
 
       &:hover {
-        color: white;
+        color: #fff;
       }
     }
 
@@ -320,7 +323,7 @@ p {
       transition: color 0.25s ease-out;
 
       &:hover {
-        color: white;
+        color: #fff;
       }
     }
   }

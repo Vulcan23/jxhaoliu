@@ -22,7 +22,7 @@ export default {
             }
         }
     },
-    plugins: ['~/plugins/element-ui.js', '~/plugins/vue-lazyload.js', '~/plugins/route.js'],
+    plugins: ['~/plugins/element-ui.js', '~/plugins/vue-lazyload.js', '~/plugins/route.js', '~/plugins/swiper.js'],
     head: {
         title: '好六网络',
         htmlAttrs: {

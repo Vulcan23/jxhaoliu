@@ -57,9 +57,7 @@
 </template>
 
 <script>
-import SwiperCore, { Pagination, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "vue-awesome-swiper";
-SwiperCore.use([Pagination, Autoplay]);
 
 function throttle(callback, delay = 600) {
   let last = 0;
@@ -139,151 +137,147 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import "swiper/swiper-bundle.css";
+<style lang="scss" scoped>
 $brand-color: #52ba30;
 
-.home {
-  img {
-    width: 100%;
-  }
+img {
+  width: 100%;
+}
 
-  .swiper-container {
-    .swiper-pagination-bullet {
-      border-radius: 0;
-      width: 3rem;
-      height: 8px;
+::v-deep .swiper-container {
+  .swiper-pagination-bullet {
+    border-radius: 0;
+    width: 3rem;
+    height: 8px;
 
-      &.swiper-pagination-bullet-active {
-        background-color: $brand-color;
-      }
-
-      @media (max-width: 767px) {
-        border-radius: 50%;
-        width: (8rem/9);
-        height: (8rem/9);
-      }
-    }
-  }
-
-  .top {
-    color: #fff;
-    padding: (30rem/11) 0;
-    background: url("~/assets/background_top.jpg") left/cover;
-
-    > div {
-      margin: 0 auto;
-      width: 60rem;
-
-      h1 {
-        text-align: center;
-        margin-top: 0;
-      }
-
-      h2 {
-        font-size: (30rem/11);
-      }
-
-      > p {
-        font-size: (17rem/11);
-        text-indent: 2em;
-      }
-
-      .el-row {
-        margin-top: 7%;
-        color: #000;
-
-        img {
-          width: 35%;
-        }
-
-        &:hover {
-          color: #fff;
-          background-color: rgba(0, 0, 0, .46);
-        }
-      }
-
-      .el-row:nth-of-type(2) {
-        img {
-          order: -1;
-        }
-      }
+    &.swiper-pagination-bullet-active {
+      background-color: $brand-color;
     }
 
-    @media (max-width: 575px) {
-      padding: 2.7272727273rem 15px;
-
-      > div {
-        width: 100%;
-      }
+    @media (max-width: 767px) {
+      border-radius: 50%;
+      width: (8rem/9);
+      height: (8rem/9);
     }
   }
+}
 
-  .middle {
-    margin: 4.54545% auto;
+.top {
+  padding: (30rem/11) 0;
+  background: url("~/assets/background_top.jpg") left/cover;
+
+  > div {
+    margin: 0 auto;
     width: 60rem;
-
-    @media (max-width: 575px) {
-      width: 100%;
-
-      & > div:nth-of-type(2) {
-        margin: 0 15px;
-      }
-    }
 
     h1 {
       text-align: center;
-      margin-bottom: 0;
+      margin-top: 0;
     }
 
-    & > div:first-of-type {
-      text-align: center;
-      font-size: 16px;
-      margin-bottom: 4.54545%;
+    h2 {
+      font-size: (30rem/11);
     }
 
-    span {
-      display: inline-block;
-      border-radius: 50%;
-      margin: 0 4px;
-      width: (7rem/11);
-      height: (7rem/11);
+    > p {
+      font-size: (17rem/11);
+      text-indent: 2em;
+    }
 
-      &:nth-of-type(1) {
-        background-color: #50c3ff;
+    .el-row {
+      margin-top: 7%;
+      color: #000;
+
+      img {
+        width: 35%;
       }
 
-      &:nth-of-type(2) {
-        background-color: #0ba5f5;
-      }
-
-      &:nth-of-type(3) {
-        background-color: #1597db;
+      &:hover {
+        color: #fff;
+        background-color: rgba(0, 0, 0, 0.46);
       }
     }
 
-    & > div:nth-of-type(2) {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: (20rem/11) (40rem/11);
-
-      .el-card__body {
-        padding: 0;
+    .el-row:nth-of-type(2) {
+      img {
+        order: -1;
       }
     }
   }
 
-  .bottom {
-    position: relative;
+  @media (max-width: 575px) {
+    padding: 2.7272727273rem 15px;
 
-    p {
-      position: absolute;
-      left: (35rem/19);
-      bottom: (35rem/19);
-      margin: 0;
-      font-size: (24rem/11);
-      color: #fff;
+    > div {
+      width: 100%;
     }
+  }
+}
+
+.middle {
+  margin: 4.54545% auto;
+  width: 60rem;
+  color: #000;
+
+  @media (max-width: 575px) {
+    width: 100%;
+
+    & > div:nth-of-type(2) {
+      margin: 0 15px;
+    }
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 0;
+  }
+
+  & > div:first-of-type {
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 4.54545%;
+  }
+
+  span {
+    display: inline-block;
+    border-radius: 50%;
+    margin: 0 4px;
+    width: (7rem/11);
+    height: (7rem/11);
+
+    &:nth-of-type(1) {
+      background-color: #50c3ff;
+    }
+
+    &:nth-of-type(2) {
+      background-color: #0ba5f5;
+    }
+
+    &:nth-of-type(3) {
+      background-color: #1597db;
+    }
+  }
+
+  & > div:nth-of-type(2) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: (20rem/11) (40rem/11);
+
+    ::v-deep .el-card__body {
+      padding: 0;
+    }
+  }
+}
+
+.bottom {
+  position: relative;
+
+  p {
+    position: absolute;
+    left: (35rem/19);
+    bottom: (35rem/19);
+    margin: 0;
+    font-size: (24rem/11);
   }
 }
 </style>

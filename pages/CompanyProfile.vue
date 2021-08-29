@@ -144,9 +144,272 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 $brand-color: #469dff;
 
+img {
+  width: 100%;
+}
+
+h2 {
+  font-size: (20rem/11);
+  color: $brand-color;
+  text-align: center;
+  margin: 4.54545% 0 0 0;
+}
+
+@media (max-width: 575px) {
+  h2 {
+    font-size: 16px;
+  }
+}
+
+.gray-field {
+  color: #838383;
+  text-align: center;
+  font-size: (12rem/11);
+  margin: 1.21212% 15px 4.54545% 15px;
+}
+
+.top {
+  position: relative;
+
+  h1,
+  p {
+    position: absolute;
+    left: 12.4%;
+  }
+
+  h1 {
+    top: 26%;
+  }
+
+  p {
+    top: 45%;
+  }
+}
+
+.about-us {
+  color: #838383;
+  width: 60rem;
+  margin: 0 auto;
+
+  h3 {
+    font-size: (16rem/11);
+    color: rgba(46, 46, 46, 0.82);
+    margin: 0;
+    letter-spacing: 0.18em;
+  }
+
+  .el-divider {
+    margin-top: 1.595%;
+    margin-bottom: 6.38%;
+    background-color: $brand-color;
+  }
+
+  > div {
+    margin-top: 4.84848%;
+    margin-bottom: 4.54545%;
+    column-count: 2;
+    column-gap: 3em;
+
+    p {
+      text-align: justify;
+      line-height: 1.4;
+      letter-spacing: 0.18em;
+      font-size: (12rem/11);
+    }
+  }
+
+  @media (max-width: 575px) {
+    width: 100%;
+
+    h3 {
+      font-size: 14px;
+    }
+
+    > div {
+      margin-left: 15px;
+      margin-right: 15px;
+    }
+  }
+}
+
+.history {
+  position: relative;
+
+  h2 {
+    margin: 0;
+  }
+
+  > div {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: grid;
+    grid-template-rows: 13fr auto 17fr;
+
+    > div {
+      grid-row: 2 / 3;
+      width: 60rem;
+      margin: 0 auto;
+      text-align: center;
+
+      .gray-field {
+        color: #fff;
+      }
+
+      > div {
+        position: relative;
+      }
+
+      @media (max-width: 575px) {
+        width: 100%;
+      }
+    }
+  }
+
+  .el-divider {
+    position: absolute;
+    top: 0;
+    left: 15%;
+    margin-top: 4.15151%;
+    width: 70%;
+  }
+
+  .history-item-circle {
+    color: #000;
+    background-color: #fff;
+    width: 8.0303%;
+    padding-top: 8.0303%;
+    display: inline-block;
+    position: relative;
+    border-radius: 50%;
+    margin-right: 15.909%;
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+
+    > p {
+      font-size: (29rem/22);
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      white-space: nowrap;
+    }
+  }
+}
+
+.leader {
+  color: #000;
+  width: 60rem;
+  margin: 0 auto;
+  text-align: center;
+
+  @media (max-width: 575px) {
+    width: 100%;
+  }
+
+  img {
+    width: 70%;
+    margin: 13.3333% auto;
+  }
+
+  .border-bottom {
+    padding: 1% 0;
+  }
+
+  .el-popover__reference-wrapper {
+    > div {
+      display: inline-block;
+      width: 22.7272%;
+      margin-bottom: 4.54545%;
+
+      p {
+        font-size: (13rem/11);
+        margin-bottom: 13.3333%;
+      }
+
+      &:hover {
+        background-color: #fafafa;
+        cursor: pointer;
+
+        .border-bottom {
+          background-color: #153170;
+        }
+      }
+    }
+  }
+}
+
+.sense-of-worth {
+  color: #000;
+  background-color: #f5f5f5;
+  padding: 4% 0;
+
+  h2 {
+    color: #000;
+    font-size: (21rem/11);
+    margin: 0;
+  }
+
+  h3 {
+    font-size: (37rem/22);
+    margin: 0;
+  }
+
+  p {
+    font-size: (31rem/22);
+    margin-left: 2em;
+  }
+
+  .sense-of-worth-center {
+    width: fit-content;
+    margin: 0 auto;
+
+    > div {
+      > * {
+        display: inline-block;
+      }
+    }
+  }
+
+  > div {
+    display: flex;
+    align-items: center;
+
+    > * {
+      width: 50%;
+    }
+
+    > div {
+      border-left: 1px solid #000;
+    }
+  }
+
+  @media (max-width: 575px) {
+    h2 {
+      font-size: 16px;
+      width: 25%;
+    }
+
+    h3 {
+      font-size: 14px;
+    }
+
+    h2 + div {
+      width: 75%;
+    }
+  }
+}
+</style>
+
+<style lang="scss">
 .el-popover {
   color: #fff;
   background-color: #153170;
@@ -175,270 +438,5 @@ $brand-color: #469dff;
 .popper__arrow::after {
   border-top-color: #153170 !important;
   border-bottom-color: #153170 !important;
-}
-
-.company-profile {
-  color: #fff;
-
-  img {
-    width: 100%;
-  }
-
-  h2 {
-    font-size: (20rem/11);
-    color: $brand-color;
-    text-align: center;
-    margin: 4.54545% 0 0 0;
-  }
-
-  @media (max-width: 575px) {
-    h2 {
-      font-size: 16px;
-    }
-  }
-
-  .gray-field {
-    color: #838383;
-    text-align: center;
-    font-size: (12rem/11);
-    margin: 1.21212% 15px 4.54545% 15px;
-  }
-
-  .top {
-    position: relative;
-
-    h1,
-    p {
-      position: absolute;
-      left: 12.4%;
-    }
-
-    h1 {
-      top: 26%;
-    }
-
-    p {
-      top: 45%;
-    }
-  }
-
-  .about-us {
-    color: #838383;
-    width: 60rem;
-    margin: 0 auto;
-
-    h3 {
-      font-size: (16rem/11);
-      color: rgba(46, 46, 46, .82);
-      margin: 0;
-      letter-spacing: .18em;
-    }
-
-    .el-divider {
-      margin-top: 1.595%;
-      margin-bottom: 6.38%;
-      background-color: $brand-color;
-    }
-
-    > div {
-      margin-top: 4.84848%;
-      margin-bottom: 4.54545%;
-      column-count: 2;
-      column-gap: 3em;
-
-      p {
-        text-align: justify;
-        line-height: 1.4;
-        letter-spacing: .18em;
-        font-size: (12rem/11);
-      }
-    }
-
-    @media (max-width: 575px) {
-      width: 100%;
-
-      h3 {
-        font-size: 14px;
-      }
-
-      > div {
-        margin-left: 15px;
-        margin-right: 15px;
-      }
-    }
-  }
-
-  .history {
-    position: relative;
-
-    h2 {
-      margin: 0;
-    }
-
-    > div {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      display: grid;
-      grid-template-rows: 13fr auto 17fr;
-
-      > div {
-        grid-row: 2 / 3;
-        width: 60rem;
-        margin: 0 auto;
-        text-align: center;
-
-        .gray-field {
-          color: #fff;
-        }
-
-        > div {
-          position: relative;
-        }
-
-        @media (max-width: 575px) {
-          width: 100%;
-        }
-      }
-    }
-
-    .el-divider {
-      position: absolute;
-      top: 0;
-      left: 15%;
-      margin-top: 4.15151%;
-      width: 70%;
-    }
-
-    .history-item-circle {
-      color: #000;
-      background-color: #fff;
-      width: 8.0303%;
-      padding-top: 8.0303%;
-      display: inline-block;
-      position: relative;
-      border-radius: 50%;
-      margin-right: 15.909%;
-
-      &:last-of-type {
-        margin-right: 0;
-      }
-
-      > p {
-        font-size: (29rem/22);
-        margin: 0;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        white-space: nowrap;
-      }
-    }
-  }
-
-  .leader {
-    color: #000;
-    width: 60rem;
-    margin: 0 auto;
-    text-align: center;
-
-    @media (max-width: 575px) {
-      width: 100%;
-    }
-
-    img {
-      width: 70%;
-      margin: 13.3333% auto;
-    }
-
-    .border-bottom {
-      padding: 1% 0;
-    }
-
-    .el-popover__reference-wrapper {
-      > div {
-        display: inline-block;
-        width: 22.7272%;
-        margin-bottom: 4.54545%;
-
-        p {
-          font-size: (13rem/11);
-          margin-bottom: 13.3333%;
-        }
-
-        &:hover {
-          background-color: #fafafa;
-          cursor: pointer;
-
-          .border-bottom {
-            background-color: #153170;
-          }
-        }
-      }
-    }
-  }
-
-  .sense-of-worth {
-    color: #000;
-    background-color: #f5f5f5;
-    padding: 4% 0;
-
-    h2 {
-      color: #000;
-      font-size: (21rem/11);
-      margin: 0;
-    }
-
-    h3 {
-      font-size: (37rem/22);
-      margin: 0;
-    }
-
-    p {
-      font-size: (31rem/22);
-      margin-left: 2em;
-    }
-
-    .sense-of-worth-center {
-      width: fit-content;
-      margin: 0 auto;
-
-      > div {
-        > * {
-          display: inline-block;
-        }
-      }
-    }
-
-    > div {
-      display: flex;
-      align-items: center;
-
-      > * {
-        width: 50%;
-      }
-
-      > div {
-        border-left: 1px solid #000;
-      }
-    }
-
-    @media (max-width: 575px) {
-      h2 {
-        font-size: 16px;
-        width: 25%;
-      }
-
-      h3 {
-        font-size: 14px;
-      }
-
-      h2 + div {
-        width: 75%;
-      }
-    }
-  }
 }
 </style>

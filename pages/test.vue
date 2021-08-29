@@ -1,22 +1,19 @@
 <template>
-  <img v-lazy="require('~/assets/background_top.jpg')" />
+  <el-popover class="qwe" placement="bottom" width="340" trigger="click">
+    <div>123</div>
+    <div slot="reference">456</div>
+  </el-popover>
 </template>
 
 <script>
-export default {
-  beforeMount() {
-    document.querySelector(".el-container").style.height = "100%";
-  },
-  beforeDestroy() {
-    document.querySelector(".el-container").style.height = "auto";
-  },
-};
+export default {};
 </script>
 
 <style lang="scss" scoped>
-img {
-  height: 100%;
-  width: 100%;
-  object-fit: fill;
+* {
+  color: red;
+}
+.qwe {
+  background-color: #000;
 }
 </style>

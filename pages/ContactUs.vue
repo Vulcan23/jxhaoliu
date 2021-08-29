@@ -1,5 +1,5 @@
 <template>
-  <div class="contact-us">
+  <div>
     <section class="top">
       <img v-lazy="require('~/assets/contactus_background.jpg')" />
       <h1>免费咨询</h1>
@@ -66,86 +66,82 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 $brand-color: #52ba30;
 
-.contact-us {
-  color: #fff;
+img {
+  width: 100%;
+}
 
-  img {
+.top {
+  position: relative;
+
+  h1,
+  p {
+    position: absolute;
+    left: 8.4%;
+    margin: 0;
+  }
+
+  h1 {
+    top: 33%;
+  }
+
+  p {
+    top: 49%;
+  }
+}
+
+.middle {
+  color: #000;
+  width: 60rem;
+  margin: 0 auto;
+
+  h2 {
+    margin-top: 4.54545%;
+    font-size: (19rem/11);
+  }
+
+  @media (max-width: 575px) {
     width: 100%;
-  }
-
-  .top {
-    position: relative;
-
-    h1,
-    p {
-      position: absolute;
-      left: 8.4%;
-      margin: 0;
-    }
-
-    h1 {
-      top: 33%;
-    }
-
-    p {
-      top: 49%;
-    }
-  }
-
-  .middle {
-    color: #000;
-    width: 60rem;
-    margin: 0 auto;
 
     h2 {
-      margin-top: 4.54545%;
-      font-size: (19rem/11);
+      font-size: 15px;
+      margin-left: 15px;
+    }
+  }
+
+  ::v-deep .el-form {
+    width: 50%;
+    margin: 4.54545% auto;
+
+    & > :last-child > div {
+      margin-left: 0 !important;
+      text-align: center;
+
+      button {
+        padding: 10px 30px;
+      }
+    }
+
+    @media (max-width: 1399px) {
+      width: 55%;
+    }
+
+    @media (max-width: 1199px) {
+      width: 61%;
+    }
+
+    @media (max-width: 991px) {
+      width: 68%;
+    }
+
+    @media (max-width: 767px) {
+      width: 76%;
     }
 
     @media (max-width: 575px) {
-      width: 100%;
-
-      h2 {
-        font-size: 15px;
-        margin-left: 15px;
-      }
-    }
-
-    .el-form {
-      width: 50%;
-      margin: 4.54545% auto;
-
-      & > :last-child > div {
-        margin-left: 0 !important;
-        text-align: center;
-
-        button {
-          padding: 10px 30px;
-        }
-      }
-
-      @media (max-width: 1399px) {
-        width: 55%;
-      }
-
-      @media (max-width: 1199px) {
-        width: 61%;
-      }
-
-      @media (max-width: 991px) {
-        width: 68%;
-      }
-
-      @media (max-width: 767px) {
-        width: 76%;
-      }
-
-      @media (max-width: 575px) {
-        width: 85%;
-      }
+      width: 85%;
     }
   }
 }

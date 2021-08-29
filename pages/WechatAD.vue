@@ -107,104 +107,100 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 $brand-color: #52ba30;
 
-.wechat-ad {
-  color: #fff;
+h1 {
+  text-align: center;
+}
+
+img {
+  width: 100%;
+}
+
+.top {
+  position: relative;
+
+  h1,
+  p {
+    position: absolute;
+    right: 3%;
+    width: (400rem/11);
+    margin: 0;
+  }
 
   h1 {
+    bottom: 54%;
+  }
+
+  p {
+    top: 64%;
+    text-indent: 2em;
+  }
+}
+
+.middle {
+  color: #000;
+  width: 60rem;
+  margin: (30rem/11) auto;
+  display: grid;
+  grid-template-columns: 1fr 28% 2fr 28% 2fr 28% 1fr;
+  row-gap: (15rem/11);
+  font-size: 1rem;
+
+  h2 {
+    font-size: (38em/22);
+  }
+
+  p {
+    font-size: 1em;
+    margin: 0 0.5em;
+  }
+
+  div {
     text-align: center;
-  }
 
-  img {
-    width: 100%;
-  }
-
-  .top {
-    position: relative;
-
-    h1,
-    p {
-      position: absolute;
-      right: 3%;
-      width: (400rem/11);
-      margin: 0;
+    img {
+      width: 50%;
+      margin: 12.5% auto;
     }
 
-    h1 {
-      bottom: 54%;
+    &:nth-of-type(3n + 1) {
+      grid-column: 2 / 3;
     }
 
-    p {
-      top: 64%;
-      text-indent: 2em;
+    &:nth-of-type(3n + 2) {
+      grid-column: 4 / 5;
+    }
+
+    &:nth-of-type(3n + 3) {
+      grid-column: 6 / 7;
+    }
+
+    &:hover {
+      background-color: $brand-color;
+      color: #fff;
     }
   }
 
-  .middle {
-    color: #000;
-    width: 60rem;
-    margin: (30rem/11) auto;
-    display: grid;
-    grid-template-columns: 1fr 28% 2fr 28% 2fr 28% 1fr;
-    row-gap: (15rem/11);
-    font-size: 1rem;
-
-    h2 {
-      font-size: (38em/22);
-    }
-
-    p {
-      font-size: 1em;
-      margin: 0 .5em;
-    }
+  @media (max-width: 767px) {
+    grid-template-columns: 1fr 42% 2fr 42% 1fr;
+    font-size: (3rem/2);
 
     div {
-      text-align: center;
-
-      img {
-        width: 50%;
-        margin: 12.5% auto;
-      }
-
-      &:nth-of-type(3n + 1) {
+      &:nth-of-type(2n + 1) {
         grid-column: 2 / 3;
       }
 
-      &:nth-of-type(3n + 2) {
+      &:nth-of-type(2n + 2) {
         grid-column: 4 / 5;
       }
-
-      &:nth-of-type(3n + 3) {
-        grid-column: 6 / 7;
-      }
-
-      &:hover {
-        background-color: $brand-color;
-        color: #fff;
-      }
     }
+  }
 
-    @media (max-width: 767px) {
-      grid-template-columns: 1fr 42% 2fr 42% 1fr;
-      font-size: (3rem/2);
-
-      div {
-        &:nth-of-type(2n + 1) {
-          grid-column: 2 / 3;
-        }
-
-        &:nth-of-type(2n + 2) {
-          grid-column: 4 / 5;
-        }
-      }
-    }
-
-    @media (max-width: 575px) {
-      width: 100%;
-      margin: 4.54545% auto;
-    }
+  @media (max-width: 575px) {
+    width: 100%;
+    margin: 4.54545% auto;
   }
 }
 </style>
