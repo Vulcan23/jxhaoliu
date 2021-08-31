@@ -12,7 +12,7 @@
     </section>
     <section class="middle">
       <el-card v-for="item in brandCase" :key="item.path" shadow="hover">
-        <a href="http://baidu.com">
+        <a href="https://www.baidu.com">
           <img v-lazy="require(`~/assets/case${item.path}.jpg`)" />
           <h2>{{ item.text.title }}</h2>
           <div>

@@ -43,7 +43,7 @@
       </div>
       <div>
         <el-card v-for="path in 4" :key="path" shadow="hover">
-          <a href="http://baidu.com">
+          <a href="/s?ie=UTF-8&wd=时间api">
             <img v-lazy="require(`~/assets/case${path}.jpg`)" />
           </a>
         </el-card>

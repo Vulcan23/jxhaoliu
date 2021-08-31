@@ -5,12 +5,8 @@
 </template>
 
 <style>
-#__nuxt,
-#__layout {
-  height: 100%;
-}
-
 .error {
+  color: #000;
   display: flex;
   justify-content: center;
   font-size: 60px;

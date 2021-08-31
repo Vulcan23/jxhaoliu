@@ -1,8 +1,7 @@
 <template>
   <div>
-    <div class="main">
-      <div v-for="item in list" :key="item" :data-year="item"></div>
-    </div>
+    <el-button @click="getTime">AJAX</el-button>
+    <div>{{ time }}</div>
   </div>
 </template>
 
@@ -10,49 +9,25 @@
 export default {
   data() {
     return {
-      list: ["2019", "2020", "2021", "2022"],
+      time: "",
     };
+  },
+  created() {
+    this.time = this.$route.path;
+  },
+  methods: {
+    async getTime() {
+      const res = await this.$axios.get(
+        "/api/rest/api3.do?api=mtop.common.getTimestamp"
+      );
+      this.time = JSON.stringify(res);
+    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
-.main {
-  background-color: #000;
-  width: 60rem;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-around;
-
-  div {
-    background-color: #fff;
-    color: #000;
-    width: 15%;
-    padding-bottom: 15%;
-    border-radius: 50%;
-    position: relative;
-
-    &::before {
-      content: attr(data-year);
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-
-    &::after {
-      content: "";
-      position: absolute;
-      left: 100%;
-      top: 50%;
-      height: 1px;
-      width: 66.6666%;
-      background-color: #fff;
-    }
-
-    &:last-of-type::after {
-      display: none;
-    }
-  }
+* {
+  color: #000;
 }
 </style>
