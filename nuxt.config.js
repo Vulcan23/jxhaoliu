@@ -1,14 +1,10 @@
 export default {
     target: "static",
-    build: {
-        publicPath: "http://cdn.jxhaoliu.com/home/",
-    },
     plugins: [
         "~/plugins/element-ui.js",
         "~/plugins/vue-lazyload.js",
         "~/plugins/route.js",
         "~/plugins/swiper.js",
-        "~/plugins/axios.js",
     ],
     modules: ["@nuxtjs/axios", "@nuxtjs/proxy"],
     proxy: {
