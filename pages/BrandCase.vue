@@ -73,8 +73,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$brand-color: #52ba30;
-
 h1 {
   text-align: center;
 }

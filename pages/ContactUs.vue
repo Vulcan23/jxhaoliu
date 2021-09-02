@@ -67,8 +67,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$brand-color: #52ba30;
-
 img {
   width: 100%;
 }

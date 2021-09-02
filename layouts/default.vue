@@ -61,7 +61,7 @@
 </template>
 
 <script>
-import { routerData } from "~/plugins/route.js";
+import { routerData } from "~/plugins/route";
 import NavMenu from "~/components/NavMenu";
 export default {
   components: {
@@ -92,68 +92,8 @@ export default {
 
 <style lang="scss">
 @import "swiper/swiper-bundle";
+@import "~/assets/css/index";
 @import "~/assets/css/move";
-$brand-color: #52ba30;
-
-html {
-  overflow: hidden auto;
-  font-size: 6px;
-  color: #fff;
-
-  @media (min-width: 576px) {
-    font-size: 9px;
-  }
-
-  @media (min-width: 768px) {
-    font-size: 12px;
-  }
-
-  @media (min-width: 992px) {
-    font-size: 16px;
-  }
-
-  @media (min-width: 1200px) {
-    font-size: 19px;
-  }
-
-  @media (min-width: 1400px) {
-    font-size: 22px;
-  }
-}
-
-body {
-  margin: 0;
-}
-
-html,
-body,
-#__nuxt,
-#__layout {
-  height: 100%;
-}
-
-.el-container {
-  min-height: 100%;
-}
-
-img {
-  display: block;
-}
-
-h1,
-h2,
-h3,
-p {
-  font-weight: normal;
-}
-
-h1 {
-  font-size: (30rem/11);
-}
-
-p {
-  font-size: (16rem/11);
-}
 
 .el-header {
   padding: 0 !important;
