@@ -91,7 +91,6 @@ img {
 }
 
 .middle {
-  color: #000;
   width: 60rem;
   margin: 0 auto;
 

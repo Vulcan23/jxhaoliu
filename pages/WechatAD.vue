@@ -140,7 +140,6 @@ img {
 }
 
 .middle {
-  color: #000;
   width: 60rem;
   margin: (30rem/11) auto;
   display: grid;

@@ -6,7 +6,6 @@
 
 <style>
 .error {
-  color: #000;
   display: flex;
   justify-content: center;
   font-size: 60px;

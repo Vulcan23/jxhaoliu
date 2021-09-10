@@ -8,7 +8,7 @@
         <nav-menu :router-data="routerData" mode="horizontal" />
         <el-button
           type="text"
-          @click="(visible) => (linkActivated = !linkActivated)"
+          @click="() => (linkActivated = !linkActivated)"
           @mouseup.native.stop
           :class="{ 'link-activated': linkActivated }"
         >

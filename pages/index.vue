@@ -217,7 +217,6 @@ img {
 .middle {
   margin: 4.54545% auto;
   width: 60rem;
-  color: #000;
 
   @media (max-width: 575px) {
     width: 100%;

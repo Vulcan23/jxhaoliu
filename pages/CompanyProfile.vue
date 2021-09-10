@@ -247,7 +247,6 @@ h2 {
       text-align: center;
 
       > div {
-        color: #000;
         background-color: #fff;
         width: 8.0303%;
         padding-top: 8.0303%;
@@ -293,7 +292,6 @@ h2 {
 }
 
 .leader {
-  color: #000;
   width: 60rem;
   margin: 0 auto;
   text-align: center;
@@ -335,7 +333,6 @@ h2 {
 }
 
 .sense-of-worth {
-  color: #000;
   background-color: #f5f5f5;
   padding: 4% 0;
 
