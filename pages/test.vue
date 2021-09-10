@@ -8,27 +8,21 @@
         :value="item.value"
       />
     </el-select>
-    <!-- v-if改成v-show来判断就没有bug -->
-    <div v-if="!selectValue">
-      <el-table :data="data0" border>
-        <el-table-column prop="grade" label="等级" width="50" align="center" />
-        <el-table-column
-          prop="thresholdInterval"
-          label="阈值/°"
-          align="center"
-        />
-      </el-table>
-    </div>
-    <div v-else-if="selectValue">
-      <el-table :data="data1" border>
-        <el-table-column prop="grade" label="等级" width="50" align="center" />
-        <el-table-column label="阈值/°" align="center">
-          <template slot-scope="{ $index }">
-            <div>{{ $index + 1 }}</div>
-          </template>
-        </el-table-column>
-      </el-table>
-    </div>
+    <el-table :data="data" border>
+      <el-table-column prop="grade" label="等级" width="50" align="center" />
+      <el-table-column
+        v-if="!selectValue"
+        key="0"
+        prop="thresholdInterval"
+        label="阈值/°"
+        align="center"
+      />
+      <el-table-column v-else key="1" label="阈值/°" align="center">
+        <template slot-scope="{ $index }">
+          <div>{{ $index + 1 }}</div>
+        </template>
+      </el-table-column>
+    </el-table>
   </div>
 </template>
 
@@ -47,7 +41,7 @@ export default {
           value: 1,
         },
       ],
-      data0: [
+      data: [
         {
           grade: 1,
           thresholdInterval: "25 ~ 90",
@@ -67,23 +61,6 @@ export default {
         {
           grade: 5,
           thresholdInterval: "0 ~ 3",
-        },
-      ],
-      data1: [
-        {
-          grade: 1,
-        },
-        {
-          grade: 2,
-        },
-        {
-          grade: 3,
-        },
-        {
-          grade: 4,
-        },
-        {
-          grade: 5,
         },
       ],
     };
