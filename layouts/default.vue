@@ -92,7 +92,7 @@ export default {
 
 <style lang="scss">
 @import "swiper/swiper-bundle";
-@import "~/assets/css/index";
+@import "~/assets/css";
 @import "~/assets/css/move";
 
 .el-header {
