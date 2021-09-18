@@ -7,6 +7,9 @@
           <p>{{ "我是文字".repeat(199) }}</p>
         </div>
       </el-scrollbar>
+      <div class="scrollx">
+        <span>{{ "我是scrollx的文字".repeat(199) }}</span>
+      </div>
     </div>
   </div>
 </template>
@@ -27,10 +30,9 @@ export default {};
 }
 
 .main-wrap {
-  flex-grow: 1;
-  flex-shrink: 0;
+  flex: 1;
   display: flex;
-  // height: calc(100% - 30px);
+  height: calc(100% - 30px);
 }
 
 .el-scrollbar {
@@ -45,5 +47,14 @@ export default {};
 .aside {
   width: 200px;
   background-color: darkblue;
+}
+
+.scrollx {
+  flex: 1;
+  overflow-x: auto;
+
+  span {
+    white-space: nowrap;
+  }
 }
 </style>
